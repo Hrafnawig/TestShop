@@ -9,6 +9,7 @@ const Navbar = () => {
         <div className={common.center}>
             <div className={navbar.nav}>
                 <div className={navbar.cartLocation}>
+                    <div className={navbar.navTxt}>Some Shop</div>
                     <ShoppingBasketIcon style={{ fontSize: 45 }} className={navbar.cartIcon}/>
                 </div>
             </div>
