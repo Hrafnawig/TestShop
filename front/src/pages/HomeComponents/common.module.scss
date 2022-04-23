@@ -1,0 +1,25 @@
+.center{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
+.centerColumn{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  flex-direction: column;
+}
+body{
+  font-family: 'Ubuntu';
+  margin: 0
+}
+a{
+  text-decoration: none;
+}
+.hidden{
+  display:none;
+}
+input{
+  border:none;
+  outline: none;
+}
