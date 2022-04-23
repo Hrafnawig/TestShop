@@ -1,0 +1,21 @@
+.nav{
+  display:flex;
+  flex-direction: row-reverse;
+  background-color: #68d58e;
+  width: 100%;
+  height: 100px;
+}
+.cartLocation{
+  display:flex;
+  align-items: center;
+}
+.cartIcon{
+  color: #e1af63;
+  margin-right:65px;
+}
+.cartIcon:hover{
+  color: #a26f0c;
+}
+.cartIcon:active{
+  color: #2c0d02;
+}
