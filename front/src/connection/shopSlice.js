@@ -30,18 +30,19 @@ export const listOfProducts = createSlice({
             },
         },
     },
-    extraReducers: {
-        [getProducts.pending]: (state, action) => {
-            state.status = 'loading';
-        },
-        [getProducts.fulfilled]: (state, action) => {
-            state.status = 'succeeded';
-            state.list.push(...action.payload);
-        },
-        [getProducts.rejected]: (state, action) => {
-            state.status = 'failed';
-            state.error = action.error.message;
-        },
+    extraReducers:(builder) => {
+        builder
+            .addCase(getProducts.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(getProducts.fulfilled,(state, {payload}) => {
+                state.status = 'succeeded';
+                state.list.push(payload);
+            })
+            .addCase(getProducts.rejected,(state, action) => {
+                state.status = 'failed';
+                state.error = action.error.message;
+            })
     },
 });
 
