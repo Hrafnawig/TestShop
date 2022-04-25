@@ -1,12 +1,13 @@
 .background{
   background-color: #95e5e5;
   display: grid;
-  height: 100%;
-  grid-template-columns: repeat(3,300px) ;
+  grid-template-columns: repeat(3,400px);
+  justify-content: center;
 }
 .cardDesign{
   background-color: white;
   margin-top: 50px;
   margin-bottom: 10px;
+  width:300px;
   height: 400px;
 }
