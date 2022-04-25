@@ -6,7 +6,7 @@ import {getProducts} from "../../connection/shopSlice";
 import orange from '../../media/products/orange.jpeg';
 import apple from '../../media/products/apple.jpeg';
 import grapes from '../../media/products/grapes.jpeg';
-import nut from '../../media/products/nut.png';
+import nut from '../../media/products/nut.jpg';
 import potato from '../../media/products/potato.jpg';
 import watermelon from '../../media/products/watermelon.jpg';
 const ShopCards = () => {
@@ -31,8 +31,11 @@ const ShopCards = () => {
             {productList.map((value) => {
                return value.data.map((value) => {
                     return <div className={common.center}>
-                        <div className={`${shopCards.cardDesign} ${common.centerColumn}`}>
-                            {value.price}
+                        <div className={`${shopCards.cardDesign} ${shopCards.infoPosition}`}>
+                            <img className={shopCards.resize} src={picDictionary[value.name]} alt=''/>
+                            <div className={shopCards.txt}> {value.name}</div>
+                            <div className={shopCards.txt}>{value.price}$</div>
+                            <div className={shopCards.btn}>BUY</div>
                         </div>
                     </div>
                 })
