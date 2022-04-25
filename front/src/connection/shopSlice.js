@@ -15,29 +15,14 @@ export const listOfProducts = createSlice({
         status: 'idle',
         error: null,
     },
-    reducers: {
-        addProduct: {
-            reducer: (state, action) => {
-                state.list.push(action.payload);
-            },
-            prepare(value) {
-                return {
-                    payload: {
-                        key: value.id,
-                        value: value,
-                    },
-                };
-            },
-        },
-    },
     extraReducers:(builder) => {
         builder
             .addCase(getProducts.pending, (state) => {
                 state.status = 'loading';
             })
-            .addCase(getProducts.fulfilled,(state, {payload}) => {
+            .addCase(getProducts.fulfilled,(state, action) => {
                 state.status = 'succeeded';
-                state.list.push(payload);
+                state.list.push(action.payload);
             })
             .addCase(getProducts.rejected,(state, action) => {
                 state.status = 'failed';
@@ -45,7 +30,5 @@ export const listOfProducts = createSlice({
             })
     },
 });
-
-export const { addProduct } = listOfProducts.actions;
 
 export default listOfProducts.reducer;
