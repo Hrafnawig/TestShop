@@ -13,12 +13,9 @@ const ShopCards = () => {
     const [clicked, setClick] = useState([]);
     const dispatch = useDispatch();
     let productList = useSelector(state => state.shop.list)
-    const postStatus = useSelector(state => state.shop.status)
     useEffect( () => {
-        if (postStatus === 'idle') {
              dispatch(getProducts())
-        }
-    }, [postStatus, dispatch])
+    }, [dispatch])
     const picDictionary = {
         orange,
         apple,
