@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import common from './common.module.scss';
 import shopCards from './shopCards.module.scss';
 import { useSelector, useDispatch } from "react-redux";
@@ -10,6 +10,7 @@ import nut from '../../media/products/nut.jpg';
 import potato from '../../media/products/potato.jpg';
 import watermelon from '../../media/products/watermelon.jpg';
 const ShopCards = () => {
+    const [clicked, setClick] = useState([]);
     const dispatch = useDispatch();
     let productList = useSelector(state => state.shop.list)
     const postStatus = useSelector(state => state.shop.status)
@@ -35,7 +36,10 @@ const ShopCards = () => {
                             <img className={shopCards.resize} src={picDictionary[value.name]} alt=''/>
                             <div className={shopCards.txt}> {value.name}</div>
                             <div className={shopCards.txt}>{value.price}$</div>
-                            <div className={shopCards.btn}>BUY</div>
+                            <div className={shopCards.btn}
+                                 onClick={() => setClick(clicked.concat(value.id))}>
+                                {clicked.includes(value.id)? 'Added to Cart':'BUY'}
+                            </div>
                         </div>
                     </div>
                 })
