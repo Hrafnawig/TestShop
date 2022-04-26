@@ -36,7 +36,7 @@ const ShopCards = () => {
                             <img className={shopCards.resize} src={picDictionary[value.name]} alt=''/>
                             <div className={shopCards.txt}> {value.name}</div>
                             <div className={shopCards.txt}>{value.price}$</div>
-                            <div className={shopCards.btn}
+                            <div className={clicked.includes(value.id)? shopCards.disable:shopCards.btn}
                                  onClick={() => setClick(clicked.concat(value.id))}>
                                 {clicked.includes(value.id)? 'Added to Cart':'BUY'}
                             </div>
