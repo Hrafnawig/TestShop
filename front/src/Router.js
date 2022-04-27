@@ -4,6 +4,7 @@ import {
     Route,
 } from 'react-router-dom';
 import HomePage from './pages/HomePage';
+import BasketPage from "./pages/BasketPage";
 import React from "react";
 
 function Router() {
@@ -12,6 +13,7 @@ function Router() {
             <BrowserRouter>
                 <Routes>
                     <Route path='/' element={<HomePage/>}/>
+                    <Route path='/cart' element={<BasketPage/>}/>
                 </Routes>
             </BrowserRouter>
         </div>

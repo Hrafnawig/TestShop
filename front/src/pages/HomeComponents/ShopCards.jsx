@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import common from './common.module.scss';
+import common from '../common.module.scss';
 import shopCards from './shopCards.module.scss';
 import { useSelector, useDispatch } from "react-redux";
 import {getProducts} from "../../connection/shopSlice";
@@ -50,7 +50,6 @@ const ShopCards = () => {
                 })
             })}
         </div>
-
     );
 };
 export default ShopCards;
