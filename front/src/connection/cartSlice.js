@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-export const counterSlice = createSlice({
+export const cartSlice = createSlice({
     name: 'counter',
     initialState:{
         products: []
@@ -20,7 +20,6 @@ export const counterSlice = createSlice({
     },
 });
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
-export const selectCount = (state) => state.counter.value;
+export const { increment, decrement, addProduct } = cartSlice.actions;
 
-export default counterSlice.reducer;
+export default cartSlice.reducer;

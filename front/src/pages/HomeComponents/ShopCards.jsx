@@ -3,6 +3,7 @@ import common from './common.module.scss';
 import shopCards from './shopCards.module.scss';
 import { useSelector, useDispatch } from "react-redux";
 import {getProducts} from "../../connection/shopSlice";
+import {addProduct} from "../../connection/cartSlice";
 import orange from '../../media/products/orange.jpeg';
 import apple from '../../media/products/apple.jpeg';
 import grapes from '../../media/products/grapes.jpeg';
@@ -34,7 +35,14 @@ const ShopCards = () => {
                             <div className={shopCards.txt}> {value.name}</div>
                             <div className={shopCards.txt}>{value.price}$</div>
                             <div className={clicked.includes(value.id)? shopCards.disable:shopCards.btn}
-                                 onClick={() => setClick(clicked.concat(value.id))}>
+                                 onClick={() =>{setClick(clicked.concat(value.id));
+                                     dispatch(addProduct({
+                                         id: value.id,
+                                         name: value.name,
+                                         value: value.price,
+                                         amount: 1
+                                     }))
+                                 }}>
                                 {clicked.includes(value.id)? 'Added to Cart':'BUY'}
                             </div>
                         </div>
