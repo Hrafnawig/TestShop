@@ -1,3 +1,51 @@
-.cardDesign{
-
+.cartDesign{
+  background-color: white;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  width:800px;
+  height: 200px;
 }
+.infoPosition{
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items:center;
+}
+.background{
+  background-color: #95e5e5;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.formDesign{
+  background-color: white;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  margin-left: 80px;
+  width:400px;
+  height: 200px;
+}
+.resize{
+  width:150px;
+  height: auto;
+}
+.txt{
+ font-size:25px;
+ font-weight: bold;
+ line-height: 50px;
+ margin-left: 40px;
+ margin-right:40px;
+}
+.btn{
+  font-size:50px;
+  font-weight: bold;
+  padding:5px;
+}
+.btn:hover{
+  border: solid grey 1px;
+}
+.btn:active{
+  color:grey;
+}
+
+

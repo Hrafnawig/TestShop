@@ -3,16 +3,19 @@ export const cartSlice = createSlice({
     name: 'counter',
     initialState:{
         products: []
-        // name: [],
-        // price: 0,
-        // amount: 1
     },
     reducers: {
-        increment: (state) => {
-            state.products.amount += 1;
+        increment: (state,action) => {
+            const itemIndex = state.products.findIndex(
+                (item) => item.id === action.payload.id
+            );
+            state.products[itemIndex].amount += 1;
         },
-        decrement: (state) => {
-            state.products.amount -= 1;
+        decrement: (state,action) => {
+            const itemIndex = state.products.findIndex(
+                (item) => item.id === action.payload.id
+            );
+            state.products[itemIndex].amount -= 1;
         },
         addProduct: (state,action)=>{
             state.products.push(action.payload)

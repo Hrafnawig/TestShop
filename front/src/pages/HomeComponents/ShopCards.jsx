@@ -39,7 +39,7 @@ const ShopCards = () => {
                                      dispatch(addProduct({
                                          id: value.id,
                                          name: value.name,
-                                         value: value.price,
+                                         price: value.price,
                                          amount: 1
                                      }))
                                  }}>
