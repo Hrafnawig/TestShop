@@ -13,17 +13,17 @@
 }
 .background{
   background-color: #95e5e5;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
 }
 .formDesign{
+  float: right;
   background-color: white;
-  margin-top: 60px;
-  margin-bottom: 30px;
-  margin-left: 80px;
+  margin-top: -500px;
+  margin-right: 80px;
   width:400px;
-  height: 200px;
+  height: 500px;
+}
+.formPosition{
+
 }
 
 .resize{
@@ -47,6 +47,13 @@
 }
 .btn:active{
   color:grey;
+}
+.blockPositions{
+    margin-left: 300px;
+    display: inline-flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
 }
 
 

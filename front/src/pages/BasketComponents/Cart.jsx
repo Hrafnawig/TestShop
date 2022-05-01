@@ -23,7 +23,7 @@ const Cart = () => {
     return (
         <div className={cart.background}>
             {cartList.map((value) => {
-                    return <div className={common.center}>
+                    return <div className={cart.blockPositions}>
                         <div className={`${cart.cartDesign} ${cart.infoPosition}`}>
                             <img className={cart.resize} src={picDictionary[value.name]} alt=''/>
                             <div className={common.centerColumn}>
@@ -38,12 +38,12 @@ const Cart = () => {
                                      onClick={() => dispatch(decrement(value))}>-</div>
                             </div>
                         </div>
-                        <div className={cart.formDesign}>
-
-                        </div>
                     </div>
             })
             }
+            <div className={cart.formDesign}>
+                k
+            </div>
         </div>
     );
 };
