@@ -38,7 +38,7 @@ const Cart = () => {
                                      onClick={() => dispatch(decrement(value))}>-</div>
                             </div>
                         </div>
-                        <div className={`${cart.formDesign} ${cart.infoPosition}`}>
+                        <div className={cart.formDesign}>
 
                         </div>
                     </div>
