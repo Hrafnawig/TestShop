@@ -7,19 +7,27 @@ module.exports.GetProducts = async (req, res, next) => {
         next(err);
     }
 };
-// module.exports.HotelBook = async (req, res, next) => {
-//     try {
-//         let { body:{
-//             inB,outB, roomId
-//         } } = req;
-//         const val={
-//             in : new Date(inB),
-//             out : new Date(outB)
-//         }
-//         console.log(val)
-//         const book = await db.Hotel.update(val,{where:{id:roomId}});
-//         res.send({ success: book});
-//     } catch (err) {
-//         next(err);
-//     }
 
+module.exports.Order = async (req, res, next) => {
+    try {
+        let {
+            body: {
+                name,
+                surname,
+                address,
+                phone
+            }
+        } = req;
+
+        const val ={
+            name,
+            surname,
+            address,
+            phone
+        }
+        const order = await db.Order.create(val);
+        res.send({success: order});
+    } catch (err) {
+        next(err);
+    }
+};
