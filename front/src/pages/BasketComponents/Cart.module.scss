@@ -17,15 +17,11 @@
 .formDesign{
   float: right;
   background-color: white;
-  margin-top: -500px;
+  margin-top: -520px;
   margin-right: 80px;
   width:400px;
   height: 500px;
 }
-.formPosition{
-
-}
-
 .resize{
   width:150px;
   height: auto;
@@ -34,8 +30,8 @@
  font-size:25px;
  font-weight: bold;
  line-height: 50px;
- margin-left: 40px;
- margin-right:40px;
+ margin-left: 50px;
+ margin-right:50px;
 }
 .btn{
   font-size:50px;
@@ -55,5 +51,15 @@
     align-items:center;
     flex-direction: column;
 }
-
-
+.submit{
+  font-size: 20px;
+  background: #e4f358;
+  color: #605e5e;
+  padding: 15px 110px 15px 110px;
+}
+.submit:hover{
+  background: #aabb0d;
+}
+.submit:active{
+  color:white;
+}

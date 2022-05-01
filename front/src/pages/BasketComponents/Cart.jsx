@@ -12,6 +12,12 @@ import watermelon from '../../media/products/watermelon.jpg';
 const Cart = () => {
     let cartList = useSelector(state => state.cart.products)
     const dispatch = useDispatch();
+    const formValues = {
+        name: '',
+        surname: '',
+        address: '',
+        phone: ''
+    }
     const picDictionary = {
         orange,
         apple,
@@ -41,8 +47,12 @@ const Cart = () => {
                     </div>
             })
             }
-            <div className={cart.formDesign}>
-                k
+            <div className={`${cart.formDesign} ${common.centerColumn}`}>
+                <input type="text" placeholder="Name" onChange={e => formValues.name = e.target.value}/>
+                <input type="text" placeholder="Surname" onChange={e => formValues.surname = e.target.value}/>
+                <input type="text" placeholder="Address" onChange={e => formValues.address = e.target.value}/>
+                <input type="tel" placeholder="Phone" onChange={e => formValues.phone = e.target.value}/>
+                <div className={cart.submit}>ORDER</div>
             </div>
         </div>
     );
