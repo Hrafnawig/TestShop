@@ -12,11 +12,15 @@ import potato from '../../media/products/potato.jpg';
 import watermelon from '../../media/products/watermelon.jpg';
 const ShopCards = () => {
     const dispatch = useDispatch();
+    const status = useSelector(state => state.shop.status)
     let productList = useSelector(state => state.shop.list)
     const cartList = useSelector(state => state.cart.products)
     useEffect( () => {
-             dispatch(getProducts())
-    }, [dispatch])
+        if(status === 'idle')
+        {
+            dispatch(getProducts())
+        }
+    }, [dispatch,status])
     const picDictionary = {
         orange,
         apple,

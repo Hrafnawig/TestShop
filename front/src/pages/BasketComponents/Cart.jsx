@@ -9,6 +9,7 @@ import grapes from '../../media/products/grapes.jpeg';
 import nut from '../../media/products/nut.jpg';
 import potato from '../../media/products/potato.jpg';
 import watermelon from '../../media/products/watermelon.jpg';
+import {order} from "../../connection/cartSlice";
 const Cart = () => {
     let cartList = useSelector(state => state.cart.products)
     const dispatch = useDispatch();
@@ -52,7 +53,7 @@ const Cart = () => {
                 <input type="text" placeholder="Surname" onChange={e => formValues.surname = e.target.value}/>
                 <input type="text" placeholder="Address" onChange={e => formValues.address = e.target.value}/>
                 <input type="tel" placeholder="Phone" onChange={e => formValues.phone = e.target.value}/>
-                <div className={cart.submit}>ORDER</div>
+                <div className={cart.submit} onClick={()=> dispatch(order(formValues))}>ORDER</div>
             </div>
         </div>
     );
