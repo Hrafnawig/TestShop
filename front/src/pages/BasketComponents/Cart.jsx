@@ -2,14 +2,13 @@ import React from 'react';
 import common from '../common.module.scss';
 import cart from './Cart.module.scss';
 import { useSelector, useDispatch } from "react-redux";
-import { increment, decrement } from "../../connection/cartSlice";
+import { increment, decrement, order, checkExist } from "../../connection/cartSlice";
 import orange from '../../media/products/orange.jpeg';
 import apple from '../../media/products/apple.jpeg';
 import grapes from '../../media/products/grapes.jpeg';
 import nut from '../../media/products/nut.jpg';
 import potato from '../../media/products/potato.jpg';
 import watermelon from '../../media/products/watermelon.jpg';
-import {order} from "../../connection/cartSlice";
 const Cart = () => {
     let cartList = useSelector(state => state.cart.products)
     const dispatch = useDispatch();
@@ -27,6 +26,7 @@ const Cart = () => {
         grapes,
         potato
     }
+
     return (
         <div className={cart.background}>
             {cartList.map((value) => {
@@ -42,7 +42,9 @@ const Cart = () => {
                                 onClick={() => dispatch(increment(value))}>+</div>
                                 <div className={cart.txt}>{value.amount}</div>
                                 <div className={cart.btn}
-                                     onClick={() => dispatch(decrement(value))}>-</div>
+                                     onClick={() => {dispatch(decrement(value));
+                                         dispatch(checkExist(value))
+                                         }}>-</div>
                             </div>
                         </div>
                     </div>

@@ -32,10 +32,18 @@ export const cartSlice = createSlice({
         },
         addProduct: (state,action)=>{
             state.products.push(action.payload)
+        },
+        checkExist:(state,action)=>{
+            const itemIndex = state.products.findIndex(
+                (item) => item.id === action.payload.id
+            );
+            if(state.products[itemIndex].amount <= 0){
+                state.products.splice(itemIndex, 1);
+            }
         }
     },
 });
 
-export const { increment, decrement, addProduct } = cartSlice.actions;
+export const { increment, decrement, addProduct, checkExist } = cartSlice.actions;
 
 export default cartSlice.reducer;
