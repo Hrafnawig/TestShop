@@ -19,7 +19,7 @@ const persistConfig = {
 const reducers = combineReducers({ shop: shopReducer, cart: cartReducer });
 const persistedReducer = persistReducer(persistConfig, reducers);
 export const store = configureStore({
-    reducer: persistedReducer,
+    reducer: reducers, //for not refresh persistedReducer instead of reducers
     devTools: true,
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({

@@ -21,6 +21,7 @@ const ShopCards = () => {
             dispatch(getProducts())
         }
     }, [dispatch,status])
+    console.log(productList)
     const picDictionary = {
         orange,
         apple,

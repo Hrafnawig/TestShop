@@ -2,7 +2,7 @@ import React from 'react';
 import common from '../common.module.scss';
 import cart from './Cart.module.scss';
 import { useSelector, useDispatch } from "react-redux";
-import { increment, decrement, order, checkExist } from "../../connection/cartSlice";
+import {increment, decrement, order, checkExist} from "../../connection/cartSlice";
 import orange from '../../media/products/orange.jpeg';
 import apple from '../../media/products/apple.jpeg';
 import grapes from '../../media/products/grapes.jpeg';
@@ -12,6 +12,10 @@ import watermelon from '../../media/products/watermelon.jpg';
 const Cart = () => {
     let cartList = useSelector(state => state.cart.products)
     const dispatch = useDispatch();
+    let total = 0;
+    for(let value of cartList){
+       total += value.amount * value.price
+    }
     const formValues = {
         name: '',
         surname: '',
@@ -26,11 +30,10 @@ const Cart = () => {
         grapes,
         potato
     }
-
     return (
         <div className={cart.background}>
             {cartList.map((value) => {
-                    return <div className={cart.blockPositions}>
+                return <div className={cart.blockPositions}>
                         <div className={`${cart.cartDesign} ${cart.infoPosition}`}>
                             <img className={cart.resize} src={picDictionary[value.name]} alt=''/>
                             <div className={common.centerColumn}>
@@ -39,12 +42,15 @@ const Cart = () => {
                             </div>
                             <div className={common.center}>
                                 <div className={cart.btn}
-                                onClick={() => dispatch(increment(value))}>+</div>
+                                     onClick={() => dispatch(increment(value))}>+
+                                </div>
                                 <div className={cart.txt}>{value.amount}</div>
                                 <div className={cart.btn}
-                                     onClick={() => {dispatch(decrement(value));
+                                     onClick={() => {
+                                         dispatch(decrement(value));
                                          dispatch(checkExist(value))
-                                         }}>-</div>
+                                     }}>-
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -57,6 +63,7 @@ const Cart = () => {
                 <input type="tel" placeholder="Phone" onChange={e => formValues.phone = e.target.value}/>
                 <div className={cart.submit} onClick={()=> dispatch(order(formValues))}>ORDER</div>
             </div>
+            <div className={cart.total}>TOTAL: {total}$ </div>
         </div>
     );
 };
